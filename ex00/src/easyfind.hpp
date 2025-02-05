@@ -7,24 +7,24 @@
 #include <list>
 #include <algorithm>
 
-class ElementNotFoundException : public std::exception
+class ValueNotFound : public std::exception
 {
-	public:
-		virtual const char* what() const throw()
-		{
-			return ("Element not found");
-		}
+public:
+	virtual const char* what() const throw()
+	{
+		return "Value not found";
+	}
 };
 
-template<typename Container>
-int	easyfind(Container& container, int value)
+template<class Container>
+typename Container::iterator	easyfind(Container& container, int value)
 {
-	for (typename Container::iterator it = container.begin(); it != container.end(); it++)
-	{
-		if (*it == value)
-			return (*it);
-	}
-	throw ElementNotFoundException();
+	if (*(container.end()) == value)
+		return container.end();
+	typename Container::iterator it = std::find(container.begin(), container.end(), value);
+	if (it == container.end())
+		throw ValueNotFound();
+	return it;
 }
 
 

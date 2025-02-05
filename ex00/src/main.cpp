@@ -10,9 +10,9 @@ int main()
 
 	try
 	{
-		int n1 = easyfind(vect, 7);
+		int n1 = *(easyfind(vect, 7));
 		std::cout << "Found: " << n1 << std::endl;
-		int n2 = easyfind(vect, 100);
+		int n2 = *(easyfind(vect, 100));
 		std::cout << "Found: " << n2 << std::endl;
 	}
 	catch(const std::exception& e)
@@ -29,9 +29,9 @@ int main()
 
 	try
 	{
-		int n1 = easyfind(lst, 7);
+		int n1 = *(easyfind(lst, 7));
 		std::cout << "Found: " << n1 << std::endl;
-		int n2 = easyfind(lst, 100);
+		int n2 = *(easyfind(lst, 100));
 		std::cout << "Found: " << n2 << std::endl;
 	}
 	catch(const std::exception& e)
